@@ -48,3 +48,7 @@ Thumbs.db
 *.mov
 *.wmv
 
+/RarityGenGen/obj
+/RarityGenGen/bin/Debug/netcoreapp3.1
+/RarityGenGen/.vs/RarityGenGen
+/.vs/RarityGenGen/v16/Server/sqlite3

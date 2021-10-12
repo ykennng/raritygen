@@ -52,3 +52,8 @@ Thumbs.db
 /RarityGenGen/bin/Debug/netcoreapp3.1
 /RarityGenGen/.vs/RarityGenGen
 /.vs/RarityGenGen/v16/Server/sqlite3
+/ImageOverlay/bin/Debug/netcoreapp3.1
+/ImageOverlay/obj
+/.vs/RarityGenGen/DesignTimeBuild
+/ImageOverlay/.vs/ImageOverlay/DesignTimeBuild
+/ImageOverlay/.vs/ImageOverlay/v16/Server/sqlite3

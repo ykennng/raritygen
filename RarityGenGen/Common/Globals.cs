@@ -16,5 +16,7 @@ namespace RarityGenGen.Common
         public static HashSet<string> Carbs = new HashSet<string>();
 
         public static HashSet<ItemDefinitionModel> ItemDefinitions = new HashSet<ItemDefinitionModel>();
+
+        public static HashSet<SpriteModel> SpriteDefinitions = new HashSet<SpriteModel>();
     }
 }

@@ -7,7 +7,7 @@
 
     public class ItemDefinitionModel
     {
-        public ItemDefinitionModel(string name, ItemTypeEnum itemType = ItemTypeEnum.Unknown, RarityEnum rarity = RarityEnum.Unknown, int? position = null)
+        public ItemDefinitionModel(string name, ItemTypeEnum itemType = ItemTypeEnum.Unknown, RarityEnum rarity = RarityEnum.Unknown, PositionEnum position = PositionEnum.Any)
         {
             ItemName = name;
             ItemType = itemType;
@@ -19,7 +19,6 @@
         public ItemTypeEnum ItemType { get; set; }
         public RarityEnum Rarity { get; set; }
         
-        // If one position only, specify 1,2 or 3, if exclude from position, use negatives
-        public int? Positioning { get; set; }
+        public PositionEnum Positioning { get; set; }
     }
 }

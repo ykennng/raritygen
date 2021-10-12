@@ -3,10 +3,17 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="27.1.1" />
+    <PackageReference Include="Numpy" Version="3.7.1.25" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ImageOverlay\ImageOverlay.csproj" />
   </ItemGroup>
 
 </Project>

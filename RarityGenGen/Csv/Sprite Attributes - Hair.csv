@@ -1,4 +1,4 @@
-Name,Filename,Qty
-kakashi,hair001,1
-orange head,hair002,
-red head,hair003,
+Name,Filename,Qty,Drop
+kakashi,hair001,1,0.1
+orange head,hair002,,
+red head,hair003,,

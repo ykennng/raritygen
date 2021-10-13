@@ -11,7 +11,7 @@ namespace ImageOverlay
         string imageDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\Images";
         string outputDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\Output";
 
-        public void GenerateImages()
+        public void GenerateImages(string image01, string image02, string image03, string image04)
         {
             try
             {

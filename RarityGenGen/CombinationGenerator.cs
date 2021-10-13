@@ -5,59 +5,79 @@
     using System.Collections.Generic;
     using System.Text;
     using System.Linq;
+    using Numpy;
 
     public class CombinationGenerator
     {
-        HashSet<SpriteModel> itemDefinitions = new HashSet<SpriteModel>();
-        //Dictionary<string, int> dropRateInSampleSize = new Dictionary<string, int>();
+        HashSet<FullSetModel> itemSets = new HashSet<FullSetModel>();
+        int sampleSize = 0;
 
-        public CombinationGenerator(HashSet<SpriteModel> items)
+        public CombinationGenerator(int setSize)
         {
-            this.itemDefinitions = items;
+            sampleSize = setSize;
+            int count = 0;
+            while(count < sampleSize)
+            {
+                itemSets.Add(new FullSetModel());
+                count++;
+            }
         }
 
-        public void GenerateCombinations()
+        public string[] GenerateCombinations(SpriteTypeEnum spriteType, int resultSize = 100)
         {
+            var itemFilenames = Globals.SpriteDefinitions.Where(x => x.SpriteType == spriteType).Select(x=>x.FileName).ToArray();
+            var itemDroprates = Globals.SpriteDefinitions.Where(x => x.SpriteType == spriteType).Select(x => x.DropRate).ToArray();
 
+            var remainingDropRateProbability = 1 - itemDroprates.Sum();
+            var avgProbabilityForRemainderItems = remainingDropRateProbability / itemDroprates.Where(x=>x ==0).ToArray().Length;            
+            for(int i = 0; i < itemDroprates.Length; i++)
+            {
+                if(itemDroprates[i] == 0)
+                {
+                    itemDroprates[i] = avgProbabilityForRemainderItems;
+                }
+            }
+
+            NDarray<string> nDarrayItem = new NDarray<string>(itemFilenames);
+            NDarray<string> nDarrayItemDropRate = new NDarray<string>(itemDroprates);
+            int[] size = new int[1];
+            size[0] = resultSize;
+
+            var result = Numpy.np.random.choice(nDarrayItem, size, true, nDarrayItemDropRate);
+            var resultInString = result.ravel().ToString().Replace("['", string.Empty).Replace("']", string.Empty).Replace("\n", string.Empty);
+            var resultArray = resultInString.Split("' '");
+
+            return resultArray;
         }
 
-        //public void CheckProbabilityAgainstSampleSize(int sampleSize)
-        //{
-        //    var common = itemDefinitions.Where(x => x.Rarity == RarityEnum.Common).Count();
-        //    var uncommon = itemDefinitions.Where(x => x.Rarity == RarityEnum.Uncommon).Count();
-        //    var rare = itemDefinitions.Where(x => x.Rarity == RarityEnum.Rare).Count();
-        //    var exotic = itemDefinitions.Where(x => x.Rarity == RarityEnum.Exotic).Count();
-        //    var divine = itemDefinitions.Where(x => x.Rarity == RarityEnum.Divine).Count();
-        //    var ethereal = itemDefinitions.Where(x => x.Rarity == RarityEnum.Ethereal).Count();
-        //    decimal totalNumberOfItems = common + uncommon + rare + exotic + divine + ethereal;
-            
-        //    var commonShare = Math.Round((common / totalNumberOfItems * 100), 2, MidpointRounding.ToEven);
-        //    var uncommonShare = Math.Round((uncommon / totalNumberOfItems * 100), 2, MidpointRounding.ToEven);
-        //    var rareShare = Math.Round((rare / totalNumberOfItems * 100), 2, MidpointRounding.ToEven);
-        //    var exoticShare = Math.Round((exotic / totalNumberOfItems * 100), 2, MidpointRounding.ToEven);
-        //    var divineShare = Math.Round((divine / totalNumberOfItems * 100), 2, MidpointRounding.ToEven);
-        //    var etherealShare = Math.Round((ethereal / totalNumberOfItems * 100), 2, MidpointRounding.ToEven);
-
-        //    Console.WriteLine("\nItem count and their distribution among total number of items:");
-        //    Console.WriteLine($"Common:{common}, {commonShare}%");
-        //    Console.WriteLine($"Uncommon:{uncommon}, {uncommonShare}%");
-        //    Console.WriteLine($"Rare:{rare}, {rareShare}%");
-        //    Console.WriteLine($"Exotic:{exotic}, {exoticShare}%");
-        //    Console.WriteLine($"Divine:{divine}, {divineShare}%");
-        //    Console.WriteLine($"Ethereal:{ethereal}, {etherealShare}%");
-        //    Console.WriteLine($"Total Number of Items:{totalNumberOfItems}\n");
-            
-        //    var dropRatesEnumArray = Enum.GetValues(typeof(DropRateEnum));
-        //    var dropRates = dropRatesEnumArray.Cast<int>().ToArray();
-            
-        //    for(int i = 0; i < dropRatesEnumArray.Length; i++)
-        //    {
-        //        var rarityName = dropRatesEnumArray.GetValue(i).ToString();
-        //        var rate = dropRates[i];
-        //        var frequencyInSample = Math.Round((sampleSize * (rate / 100.0)), 0, MidpointRounding.AwayFromZero);
-        //        dropRateInSampleSize.Add(rarityName, (int)frequencyInSample);
-        //    }
-        //    var test = itemDefinitions.Where(x => x.ItemType != ItemTypeEnum.Background && x.ItemType != ItemTypeEnum.BagType && x.ItemType != ItemTypeEnum.Unknown).Count();
-        //}
+        public void FillInItemSets(string[] sampleSet, int imagePosition, int sampleSize = 100)
+        {
+            //switch(imagePosition)
+            //{
+            //    case 1:
+            //        {
+            //            break;
+            //        }
+            //    case 2:
+            //        {
+            //            break;
+            //        }
+            //    case 3:
+            //        {
+            //            break;
+            //        }
+            //    case 4:
+            //        {
+            //            break;
+            //        }
+            //}
+            int count = 0;
+            foreach(var set in itemSets)
+            {
+                set.GetType().GetProperty("Image1").SetValue(set, sampleSet[count]);
+                //set.Image1 = sampleSet[count];
+                count++;
+            }
+        }
     }
 }

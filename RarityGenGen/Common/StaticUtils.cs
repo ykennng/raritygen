@@ -38,18 +38,23 @@ namespace RarityGenGen.Common
                             var itemName = csv.GetField<string>("Name");
                             var filename = csv.GetField<string>("Filename");
                             var qty = csv.GetField<int?>("Qty");
-                            if (qty == null)
+                            //if (qty == null)
+                            //{
+                            //    qty = 0;
+                            //}
+                            var dropRate = csv.GetField<double?>("Drop");
+                            if (dropRate == null)
                             {
-                                qty = 0;
+                                dropRate = 0;
                             }
 
-                            if (!string.IsNullOrEmpty(itemName) && !string.IsNullOrEmpty(filename) && qty != null)
+                            if (!string.IsNullOrEmpty(itemName) && !string.IsNullOrEmpty(filename))
                             {
-                                Globals.SpriteDefinitions.Add(new SpriteModel(itemName, filename, qty, enumName));
+                                Globals.SpriteDefinitions.Add(new SpriteModel(itemName, filename, qty, (double)dropRate, enumName));
                             }
                             else
                             {
-                                Console.WriteLine($"Unknown entry: {itemName ?? "?"}-{ filename ?? "?"}-{ qty }");
+                                Console.WriteLine($"Unknown entry: {itemName ?? "?"}-{ filename ?? "?"}-{ qty }-{ dropRate }");
                             }
                         }
                     }

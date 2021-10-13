@@ -10,8 +10,12 @@ namespace RarityGenGen
         static void Main(string[] args)
         {
             StaticUtils.ReadCsv2();
-            ImageOverlayClass imageOverlayer = new ImageOverlayClass();
-            
+
+            CombinationGenerator combiGen = new CombinationGenerator(100);
+            var hairResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Hair);
+            combiGen.FillInItemSets(hairResultSet, 1);
+            //ImageOverlayClass imageOverlayer = new ImageOverlayClass();
+
             // old stuff - Konbini
             //StaticUtils.ReadCsv();
             //StaticUtils.WriteItemListsToCSV();

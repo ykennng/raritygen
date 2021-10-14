@@ -9,7 +9,7 @@
 
     public class CombinationGenerator
     {
-        HashSet<FullSetModel> itemSets = new HashSet<FullSetModel>();
+        public List<FullSetModel> itemSets { get; set; } = new List<FullSetModel>();
         int sampleSize = 0;
 
         public CombinationGenerator(int setSize)
@@ -50,31 +50,12 @@
             return resultArray;
         }
 
-        public void FillInItemSets(string[] sampleSet, int imagePosition, int sampleSize = 100)
+        public void FillInItemSets(string[] sampleSet, int imagePosition, int sampleSize = 100, string folderName = null, string picFormat = null)
         {
-            //switch(imagePosition)
-            //{
-            //    case 1:
-            //        {
-            //            break;
-            //        }
-            //    case 2:
-            //        {
-            //            break;
-            //        }
-            //    case 3:
-            //        {
-            //            break;
-            //        }
-            //    case 4:
-            //        {
-            //            break;
-            //        }
-            //}
             int count = 0;
             foreach(var set in itemSets)
             {
-                set.GetType().GetProperty("Image1").SetValue(set, sampleSet[count]);
+                set.GetType().GetProperty($"Image{imagePosition}").SetValue(set, (folderName?? string.Empty) + sampleSet[count] + picFormat);
                 //set.Image1 = sampleSet[count];
                 count++;
             }

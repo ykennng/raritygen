@@ -20,15 +20,16 @@ namespace RarityGenGen.Common
             };
 
 
-        public static void ReadCsv2()
+        public static void ReadCsv2(string csvDirectory = null)
         {
+            var directory = csvDirectory ?? projectDirectory;
             foreach (var spriteType in Enum.GetNames(typeof(SpriteTypeEnum)))
             {
                 var csvName = $"Sprite Attributes - {spriteType}.csv";
                 var enumName = (SpriteTypeEnum)Enum.Parse(typeof(SpriteTypeEnum), spriteType, true);
                 try
                 {
-                    using (var reader = new StreamReader(Path.Combine(projectDirectory, "Csv", csvName)))
+                    using (var reader = new StreamReader(Path.Combine(directory, "Csv", csvName)))
                     using (var csv = new CsvReader(reader, csvReaderConfig))
                     {
                         csv.Read();

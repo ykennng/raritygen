@@ -57,3 +57,5 @@ Thumbs.db
 /.vs/RarityGenGen/DesignTimeBuild
 /ImageOverlay/.vs/ImageOverlay/DesignTimeBuild
 /ImageOverlay/.vs/ImageOverlay/v16/Server/sqlite3
+/RarityGenGen/Images/Output
+/RarityGenGen/Properties/launchSettings.json

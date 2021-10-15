@@ -10,7 +10,7 @@ namespace RarityGenGen.Common
 {
     public static class StaticUtils
     {
-        static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).FullName;
         static CsvConfiguration csvReaderConfig = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 HasHeaderRecord = true,
@@ -20,7 +20,7 @@ namespace RarityGenGen.Common
             };
 
 
-        public static void ReadCsv2(string csvDirectory = null)
+        public static void ReadCsv(string csvDirectory = null)
         {
             var directory = csvDirectory ?? projectDirectory;
             foreach (var spriteType in Enum.GetNames(typeof(SpriteTypeEnum)))
@@ -67,7 +67,7 @@ namespace RarityGenGen.Common
             }
         }
 
-        public static void ReadCsv()
+        public static void ReadCsvOld()
         {
             //string workingDirectory = Environment.CurrentDirectory;
             //string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;

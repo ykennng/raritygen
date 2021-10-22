@@ -12,5 +12,6 @@ namespace RarityGenGen.Common
         Eyes = 3,
         Mouth = 4,
         Clothes = 5,
+        Equipment = 6
     }
 }

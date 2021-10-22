@@ -59,3 +59,5 @@ Thumbs.db
 /ImageOverlay/.vs/ImageOverlay/v16/Server/sqlite3
 /RarityGenGen/Images/Output
 /RarityGenGen/Properties/launchSettings.json
+/MetadataGen/obj
+/MetadataGen/bin/Debug/netcoreapp3.1

@@ -1,6 +1,6 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+10k drop lezgo
 
 ### What is this repository for? ###
 
@@ -10,12 +10,10 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Default CSV folder and Images folder are in location as exe
+run .exe with arguments:
+-f <folder location>
+-s <sample size>
 
 ### Contribution guidelines ###
 

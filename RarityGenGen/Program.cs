@@ -51,14 +51,6 @@ namespace RarityGenGen
                 imagePosition++;
             }
 
-            //var hairResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Hair);
-            //var eyesResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Eyes);
-            //var clothesResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Clothes);
-
-            //combiGen.FillInItemSets(hairResultSet, 1, size, @"Hair\", ".png");
-            //combiGen.FillInItemSets(eyesResultSet, 2, size, @"Eyes\", ".png");
-            //combiGen.FillInItemSets(clothesResultSet, 3, size, @"Clothes\", ".png");
-
             ImageOverlayClass imageOverlayer = new ImageOverlayClass();
             int counter = 1;
             foreach (var set in combiGen.itemSets)

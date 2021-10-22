@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using RarityGenGen.Common;
 using ImageOverlay;
+using CommandLine;
 using System.IO;
 
 namespace RarityGenGen
@@ -12,7 +13,7 @@ namespace RarityGenGen
         {
             string baseFolder = string.Empty;
             int size = 100; //default size
-
+            // TODO: use commandlineparser 
             if (args.Length != 0)
             {
                 for (int i = 0; i < args.Length; i++)
@@ -41,23 +42,32 @@ namespace RarityGenGen
             StaticUtils.ReadCsv(baseFolder);
 
             CombinationGenerator combiGen = new CombinationGenerator(size);
-            var hairResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Hair);
-            var eyesResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Eyes);
-            var clothesResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Clothes);
 
-            combiGen.FillInItemSets(hairResultSet, 1, size, @"Hair\", ".png");
-            combiGen.FillInItemSets(eyesResultSet, 2, size, @"Eyes\", ".png");
-            combiGen.FillInItemSets(clothesResultSet, 3, size, @"Clothes\", ".png");
+            int imagePosition = 1;
+            foreach (var spriteType in Enum.GetValues(typeof(SpriteTypeEnum)))
+            {
+                var resultSet = combiGen.GenerateCombinations((SpriteTypeEnum)spriteType);
+                combiGen.FillInItemSets(resultSet, imagePosition, size, $"{spriteType.ToString()}\\", ".png");
+                imagePosition++;
+            }
+
+            //var hairResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Hair);
+            //var eyesResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Eyes);
+            //var clothesResultSet = combiGen.GenerateCombinations(SpriteTypeEnum.Clothes);
+
+            //combiGen.FillInItemSets(hairResultSet, 1, size, @"Hair\", ".png");
+            //combiGen.FillInItemSets(eyesResultSet, 2, size, @"Eyes\", ".png");
+            //combiGen.FillInItemSets(clothesResultSet, 3, size, @"Clothes\", ".png");
 
             ImageOverlayClass imageOverlayer = new ImageOverlayClass();
             int counter = 1;
             foreach (var set in combiGen.itemSets)
             {
-                var fullset = $"{set.Image1}-{set.Image2}-{set.Image3}";
+                var fullset = $"{set.Image1}-{set.Image2}-{set.Image3}-{set.Image4}-{set.Image5}-{set.Image6}";
                 if(sets.Add(fullset))
                 {
                     Console.WriteLine(fullset);
-                    imageOverlayer.GenerateImages(set.Image1, set.Image2, set.Image3, counter, baseFolder+"Images");
+                    imageOverlayer.GenerateImages(counter, set.Image1, set.Image2, set.Image3, set.Image4, set.Image5, set.Image6, baseFolder+"Images");
                     counter++;
                 }
                 else
@@ -65,28 +75,6 @@ namespace RarityGenGen
                     Console.WriteLine(fullset + " is  dupe.");
                 }
             }
-            
-            // old stuff - Konbini
-            //StaticUtils.ReadCsv();
-            //StaticUtils.WriteItemListsToCSV();
-            //StaticUtils.ReadItemDefinitionCsv();
-
-            //Console.WriteLine("Enter Sample size: ");
-            //string sampleSizeInput = Console.ReadLine();
-            //try
-            //{
-            //    var sampleSize = Convert.ToInt32(sampleSizeInput);
-
-            //    var rarityGenGen = new RarityGenerator(Globals.ItemDefinitions);
-            //    rarityGenGen.CheckProbabilityAgainstSampleSize(sampleSize);
-            //}
-            //catch(Exception ex)
-            //{
-            //    Console.WriteLine("Enter a proper number baka!");
-            //    throw ex;
-            //}
-
-            //Console.WriteLine("Hello World!");
         }
     }
 }

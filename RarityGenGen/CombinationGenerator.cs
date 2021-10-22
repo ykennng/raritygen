@@ -27,6 +27,11 @@
         {
             var itemFilenames = Globals.SpriteDefinitions.Where(x => x.SpriteType == spriteType).Select(x=>x.FileName).ToArray();
             var itemDroprates = Globals.SpriteDefinitions.Where(x => x.SpriteType == spriteType).Select(x => x.DropRate).ToArray();
+            
+            if(!itemFilenames.Any())
+            {
+                return itemFilenames;
+            }
 
             var remainingDropRateProbability = 1 - itemDroprates.Sum();
             var avgProbabilityForRemainderItems = remainingDropRateProbability / itemDroprates.Where(x=>x ==0).ToArray().Length;            
@@ -53,11 +58,18 @@
         public void FillInItemSets(string[] sampleSet, int imagePosition, int sampleSize = 100, string folderName = null, string picFormat = null)
         {
             int count = 0;
-            foreach(var set in itemSets)
+            if (!sampleSet.Any())
             {
-                set.GetType().GetProperty($"Image{imagePosition}").SetValue(set, (folderName?? string.Empty) + sampleSet[count] + picFormat);
-                //set.Image1 = sampleSet[count];
-                count++;
+                Console.WriteLine($"No items for set: {folderName ?? "Nani"}");
+            }
+            else
+            {
+                foreach (var set in itemSets)
+                {
+                    set.GetType().GetProperty($"Image{imagePosition}").SetValue(set, (folderName ?? string.Empty) + sampleSet[count] + picFormat);
+                    //set.Image1 = sampleSet[count];
+                    count++;
+                }
             }
         }
     }

@@ -9,7 +9,7 @@ namespace ImageOverlay
     {
         readonly string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).FullName;
 
-        public void GenerateImages(string image01, string image02, string image03, int counter, string baseFolder = null)
+        public void GenerateImages(int counter, string image01 = null, string image02 = null, string image03 = null, string image04 = null, string image05 = null, string image06 = null, string baseFolder = null)
         {
             try
             {
@@ -20,17 +20,47 @@ namespace ImageOverlay
                 }
 
                 Image baseImage = Image.FromFile(folder + "base.jpg");
-                Image image1 = Image.FromFile(folder + image01);
-                Image image2 = Image.FromFile(folder + image02);
-                Image image3 = Image.FromFile(folder + image03);
-
+                
                 Image img = new Bitmap(baseImage.Width, baseImage.Height);
                 using (Graphics gr = Graphics.FromImage(img))
                 {
                     gr.DrawImage(baseImage, new Point(0, 0));
-                    gr.DrawImage(image1, new Point(0, 0));
-                    gr.DrawImage(image2, new Point(0, 0));
-                    gr.DrawImage(image3, new Point(0, 0));
+
+                    if (!string.IsNullOrEmpty(image01))
+                    {
+                        Image image1 = Image.FromFile(folder + image01);
+                        gr.DrawImage(image1, new Point(0, 0));
+                    }
+
+                    if (!string.IsNullOrEmpty(image02))
+                    {
+                        Image image2 = Image.FromFile(folder + image02);
+                        gr.DrawImage(image2, new Point(0, 0));
+                    }
+
+                    if (!string.IsNullOrEmpty(image03))
+                    {
+                        Image image3 = Image.FromFile(folder + image03);
+                        gr.DrawImage(image3, new Point(0, 0));
+                    }
+
+                    if (!string.IsNullOrEmpty(image04))
+                    {
+                        Image image4 = Image.FromFile(folder + image04);
+                        gr.DrawImage(image4, new Point(0, 0));
+                    }
+
+                    if (!string.IsNullOrEmpty(image05))
+                    {
+                        Image image5 = Image.FromFile(folder + image05);
+                        gr.DrawImage(image5, new Point(0, 0));
+                    }
+
+                    if (!string.IsNullOrEmpty(image06))
+                    {
+                        Image image6 = Image.FromFile(folder + image06);
+                        gr.DrawImage(image6, new Point(0, 0));
+                    }
                 }
 
                 var outputDirectory = baseFolder ?? projectDirectory;

@@ -66,6 +66,17 @@ namespace RarityGenGen.Common
                 }
             }
         }
+
+        public static void WriteMetadataAttributesToCSV(string csvDirectory = null)
+        {
+            var directory = csvDirectory ?? projectDirectory;
+
+            using (var writer = new StreamWriter(Path.Combine(directory, "Csv", "MetadataAttributes.csv")))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(Globals.ItemMetadataList);
+            }
+        }
     }
 }
 

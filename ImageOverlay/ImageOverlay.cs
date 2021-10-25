@@ -8,8 +8,8 @@ namespace ImageOverlay
     public class ImageOverlayClass
     {
         readonly string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).FullName;
-
-        public void GenerateImages(int counter, string image01 = null, string image02 = null, string image03 = null, string image04 = null, string image05 = null, string image06 = null, string baseFolder = null)
+        public const string OutputPrefix = "Output";
+        public string GenerateImages(int counter, string image01 = null, string image02 = null, string image03 = null, string image04 = null, string image05 = null, string image06 = null, string baseFolder = null)
         {
             try
             {
@@ -72,13 +72,15 @@ namespace ImageOverlay
                     }
                 }
                 
-                outputDirectory += @"Output";
+                outputDirectory += OutputPrefix;
 
                 bool exists = System.IO.Directory.Exists(outputDirectory);
 
                 if (!exists)
                     System.IO.Directory.CreateDirectory(outputDirectory);
                 img.Save(outputDirectory + @"\output"+counter+".png", ImageFormat.Bmp);
+
+                return OutputPrefix + counter + ".png";
             }
             catch (Exception ex)
             {

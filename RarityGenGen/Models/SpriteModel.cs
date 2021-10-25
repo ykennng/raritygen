@@ -7,7 +7,7 @@
 
     public class SpriteModel
     {
-        public SpriteModel(string name, string filename, int? quantity, double drop, SpriteTypeEnum itemType = SpriteTypeEnum.Unknown)
+        public SpriteModel(string name, string filename, int? quantity, double drop, SpriteTypeEnum itemType)
         {
             ItemName = name;
             FileName = filename;

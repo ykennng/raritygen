@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using RarityGenGen.Common;
 using ImageOverlay;
+using MetadataGen;
 using CommandLine;
 using System.IO;
 
@@ -55,11 +56,12 @@ namespace RarityGenGen
             int counter = 1;
             foreach (var set in combiGen.itemSets)
             {
-                var fullset = $"{set.Image1}-{set.Image2}-{set.Image3}-{set.Image4}-{set.Image5}-{set.Image6}";
+                var fullset = $"{set.Image1 ?? "None"}-{set.Image2 ?? "None"}-{set.Image3 ?? "None"}-{set.Image4 ?? "None"}-{set.Image5 ?? "None"}-{set.Image6 ?? "None"}";
                 if(sets.Add(fullset))
                 {
                     Console.WriteLine(fullset);
-                    imageOverlayer.GenerateImages(counter, set.Image1, set.Image2, set.Image3, set.Image4, set.Image5, set.Image6, baseFolder+"Images");
+                    var outputImageName = imageOverlayer.GenerateImages(counter, set.Image1, set.Image2, set.Image3, set.Image4, set.Image5, set.Image6, baseFolder+"Images");
+                    combiGen.FillInMetadataModel(set.Image1, set.Image2, set.Image3, set.Image4, set.Image5, set.Image6, outputImageName);
                     counter++;
                 }
                 else
@@ -67,6 +69,8 @@ namespace RarityGenGen
                     Console.WriteLine(fullset + " is  dupe.");
                 }
             }
+
+            StaticUtils.WriteMetadataAttributesToCSV(baseFolder);
         }
     }
 }

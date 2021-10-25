@@ -1,6 +1,7 @@
 ﻿namespace RarityGenGen
 {
     using RarityGenGen.Common;
+    using RarityGenGen.Models;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -67,10 +68,30 @@
                 foreach (var set in itemSets)
                 {
                     set.GetType().GetProperty($"Image{imagePosition}").SetValue(set, (folderName ?? string.Empty) + sampleSet[count] + picFormat);
-                    //set.Image1 = sampleSet[count];
                     count++;
                 }
             }
+        }
+
+        public void FillInMetadataModel(string image01 = null, string image02 = null, string image03 = null, string image04 = null, string image05 = null, string image06 = null, string outputImageName = null)
+        {
+            var attribute1 = !string.IsNullOrEmpty(image01) ? image01.Split("\\")[1].Replace(".png", string.Empty) : null;
+            var attribute2 = !string.IsNullOrEmpty(image02) ? image02.Split("\\")[1].Replace(".png", string.Empty) : null;
+            var attribute3 = !string.IsNullOrEmpty(image03) ? image03.Split("\\")[1].Replace(".png", string.Empty) : null;
+            var attribute4 = !string.IsNullOrEmpty(image04) ? image04.Split("\\")[1].Replace(".png", string.Empty) : null;
+            var attribute5 = !string.IsNullOrEmpty(image05) ? image05.Split("\\")[1].Replace(".png", string.Empty) : null;
+            //var attribute6 = !string.IsNullOrEmpty(image06) ? image06.Split("\\")[1].Replace(".png", string.Empty) : null;
+            var outputImage = outputImageName;
+
+            Globals.ItemMetadataList.Add(new MetadataExportModel()
+            {
+                Background_Name = attribute1,
+                Skin_Name = attribute2,
+                Head_Name = attribute3,
+                Body_Name = attribute4,
+                Equipment_Name = attribute5,
+                OutputImageLocation = outputImageName
+            });
         }
     }
 }

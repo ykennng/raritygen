@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ImageOverlay\ImageOverlay.csproj" />
+    <ProjectReference Include="..\MetadataGen\MetadataGen.csproj" />
   </ItemGroup>
 
 </Project>

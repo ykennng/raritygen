@@ -7,7 +7,7 @@ namespace RarityGenGen.Common
 {
     public static class Globals
     {
-        public static HashSet<SpriteModel> SpriteDefinitions = new HashSet<SpriteModel>();
+        public static List<SpriteModel> SpriteDefinitions = new List<SpriteModel>();
 
         public static List<MetadataExportModel> ItemMetadataList = new List<MetadataExportModel>();
     }

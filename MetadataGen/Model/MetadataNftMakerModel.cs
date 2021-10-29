@@ -12,8 +12,8 @@ namespace MetadataGen.Model
         [JsonProperty("assetName", Required = Required.Always)]
         public string AssetName { get; set; }
 
-        [JsonProperty("previewImageNft", Required = Required.Always)]
-        public string PreviewImageNft { get; set; }
+        //[JsonProperty("previewImageNft", Required = Required.Always)]
+        //public string PreviewImageNft { get; set; }
 
         // choose one image source location only
         [JsonProperty("FileFromBase64", Required = Required.AllowNull)]
@@ -33,9 +33,14 @@ namespace MetadataGen.Model
         [JsonProperty("displayname", Required = Required.AllowNull)]
         public string displayName { get; set; }
 
-        //Use either metadata OR metadataPlaceholders, not both, metadata has priority
-        [JsonProperty("metadata", Required = Required.AllowNull)]
-        public MetadataModel Metadata { get; set; }
+        [JsonProperty("mimetype", Required = Required.Always)]
+        public string MimeType { get; set; }
+
+        [JsonProperty("projectname", Required = Required.Always)]
+        public string ProjectName { get; set; }
+
+        [JsonProperty("websiteurl", Required = Required.AllowNull)]
+        public string WebsiteUrl { get; set; }
 
         [JsonProperty("metadataPlaceholder", Required = Required.AllowNull)]
         public List<MetadataPlaceholderModel> MetadataPlaceholders { get; set; }

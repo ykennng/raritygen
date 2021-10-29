@@ -1,10 +1,28 @@
 Background_Name,Skin_Name,Head_Name,Body_Name,Equipment_Name,OutputImageLocation
-,,hair003,body003,,Output1.png
-,,hair001,body003,,Output2.png
-,,hair002,body003,,Output3.png
-,,hair003,body001,,Output4.png
-,,hair003,body002,,Output5.png
-,,hair002,body001,,Output6.png
-,,hair002,body002,,Output7.png
-,,hair001,body002,,Output8.png
-,,hair001,body001,,Output9.png
+Game_Shapes,White,body2,red head,Pistol,Output1.png
+bg001,White,Squid_Suit,kakashi,Pistol,Output2.png
+Game_Shapes,White,Squid_Suit,orange head,Pistol,Output3.png
+bg001,White,body1,red head,Pistol,Output4.png
+Game_Shapes,White,Squid_Suit,kakashi,Pistol,Output5.png
+bg001,White,body2,orange head,Pistol,Output6.png
+Game_Shapes,White,body1,orange head,Pistol,Output7.png
+Game_Shapes,White,body2,kakashi,Pistol,Output8.png
+bg001,White,body3,red head,Pistol,Output9.png
+Game_Shapes,White,body2,orange head,Pistol,Output10.png
+bg001,White,body1,kakashi,Pistol,Output11.png
+bg001,White,body3,kakashi,Pistol,Output12.png
+Game_Shapes,White,body3,Squid_Tri,Pistol,Output13.png
+bg001,White,body3,orange head,Pistol,Output14.png
+bg001,White,body2,red head,Pistol,Output15.png
+Game_Shapes,White,body1,kakashi,Pistol,Output16.png
+Game_Shapes,White,body3,red head,Pistol,Output17.png
+Game_Shapes,White,body1,red head,Pistol,Output18.png
+Game_Shapes,White,body2,Squid_Tri,Pistol,Output19.png
+Game_Shapes,White,body3,kakashi,Pistol,Output20.png
+Game_Shapes,White,body3,orange head,Pistol,Output21.png
+bg001,White,body2,kakashi,Pistol,Output22.png
+bg001,White,Squid_Suit,red head,Pistol,Output23.png
+bg001,White,Squid_Suit,Squid_Tri,Pistol,Output24.png
+bg001,White,Squid_Suit,orange head,Pistol,Output25.png
+Game_Shapes,White,Squid_Suit,red head,Pistol,Output26.png
+bg001,White,body1,orange head,Pistol,Output27.png

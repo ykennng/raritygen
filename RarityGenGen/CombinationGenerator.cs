@@ -75,11 +75,11 @@
 
         public void FillInMetadataModel(string image01 = null, string image02 = null, string image03 = null, string image04 = null, string image05 = null, string image06 = null, string outputImageName = null)
         {
-            var attribute1 = !string.IsNullOrEmpty(image01) ? image01.Split("\\")[1].Replace(".png", string.Empty) : null;
-            var attribute2 = !string.IsNullOrEmpty(image02) ? image02.Split("\\")[1].Replace(".png", string.Empty) : null;
-            var attribute3 = !string.IsNullOrEmpty(image03) ? image03.Split("\\")[1].Replace(".png", string.Empty) : null;
-            var attribute4 = !string.IsNullOrEmpty(image04) ? image04.Split("\\")[1].Replace(".png", string.Empty) : null;
-            var attribute5 = !string.IsNullOrEmpty(image05) ? image05.Split("\\")[1].Replace(".png", string.Empty) : null;
+            var attribute1 = StaticUtils.GetItemNameFromFileNameForMetadata(!string.IsNullOrEmpty(image01) ? image01.Split("\\")[1].Replace(".png", string.Empty) : null);
+            var attribute2 = StaticUtils.GetItemNameFromFileNameForMetadata(!string.IsNullOrEmpty(image02) ? image02.Split("\\")[1].Replace(".png", string.Empty) : null);
+            var attribute3 = StaticUtils.GetItemNameFromFileNameForMetadata(!string.IsNullOrEmpty(image03) ? image03.Split("\\")[1].Replace(".png", string.Empty) : null);
+            var attribute4 = StaticUtils.GetItemNameFromFileNameForMetadata(!string.IsNullOrEmpty(image04) ? image04.Split("\\")[1].Replace(".png", string.Empty) : null);
+            var attribute5 = StaticUtils.GetItemNameFromFileNameForMetadata(!string.IsNullOrEmpty(image05) ? image05.Split("\\")[1].Replace(".png", string.Empty) : null);
             //var attribute6 = !string.IsNullOrEmpty(image06) ? image06.Split("\\")[1].Replace(".png", string.Empty) : null;
             var outputImage = outputImageName;
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Linq;
 
 namespace RarityGenGen.Common
 {
@@ -60,9 +61,13 @@ namespace RarityGenGen.Common
                         }
                     }
                 }
-                catch(Exception ex)
+                catch(FileNotFoundException ex)
                 {
                     Console.WriteLine($"{ csvName } not found.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
                 }
             }
         }
@@ -76,6 +81,12 @@ namespace RarityGenGen.Common
             {
                 csv.WriteRecords(Globals.ItemMetadataList);
             }
+        }
+
+        public static string GetItemNameFromFileNameForMetadata(string filename)
+        {
+            var itemName = Globals.SpriteDefinitions.Where(x => x.FileName == filename).FirstOrDefault()?.ItemName;
+            return itemName;
         }
     }
 }

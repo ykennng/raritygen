@@ -19,18 +19,20 @@ namespace ImageOverlay
                     folder += @"\";
                 }
 
-                Image baseImage = Image.FromFile(folder + "base.jpg");
+                Image baseImage = Image.FromFile(folder + "FSJAL.png");
                 
                 Image img = new Bitmap(baseImage.Width, baseImage.Height);
                 using (Graphics gr = Graphics.FromImage(img))
                 {
-                    gr.DrawImage(baseImage, new Point(0, 0));
-
+                    //background first
                     if (!string.IsNullOrEmpty(image01))
                     {
                         Image image1 = Image.FromFile(folder + image01);
                         gr.DrawImage(image1, new Point(0, 0));
                     }
+
+                    //FSJAL
+                    gr.DrawImage(baseImage, new Point(0, 0));
 
                     if (!string.IsNullOrEmpty(image02))
                     {
@@ -78,7 +80,7 @@ namespace ImageOverlay
 
                 if (!exists)
                     System.IO.Directory.CreateDirectory(outputDirectory);
-                img.Save(outputDirectory + @"\output"+counter+".png", ImageFormat.Bmp);
+                img.Save(outputDirectory + @"\output"+counter+".png", ImageFormat.Png);
 
                 return OutputPrefix + counter + ".png";
             }

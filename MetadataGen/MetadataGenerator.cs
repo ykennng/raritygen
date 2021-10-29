@@ -3,6 +3,7 @@ using Newtonsoft;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
+using MetadataGen.Model;
 
 namespace MetadataGen
 {
@@ -28,6 +29,11 @@ namespace MetadataGen
         //    [JsonProperty("email", Required = Required.Always)]
         //    public string Email;
         //}
+        }
+
+        public MetadataPlaceholderModel CreateMetadataPlaceholder(string key, string value)
+        {
+            return new MetadataPlaceholderModel() { Name = key, Value = value };
         }
     }
 }

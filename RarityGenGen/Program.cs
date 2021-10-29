@@ -14,21 +14,20 @@ namespace RarityGenGen
         {
             string baseFolder = string.Empty;
             int size = 100; //default size
-            // TODO: use commandlineparser 
-            if (args.Length != 0)
-            {
-                for (int i = 0; i < args.Length; i++)
-                {
-                    if (args[i] == "-f")
-                    {
-                        baseFolder = args[i + 1];
-                    }
-                    else if (args[i] == "-s")
-                    {
-                        size = Int32.Parse(args[i + 1]);
-                    }
-                }
-            }
+
+            Parser.Default.ParseArguments<Options>(args)
+               .WithParsed<Options>(o =>
+               {
+                   if (!string.IsNullOrEmpty(o.BaseFolder))
+                   {
+                       baseFolder = o.BaseFolder;
+                   }
+
+                   if (o.size != null)
+                   {
+                       size = (int)o.size;
+                   }
+               });
 
             if (string.IsNullOrEmpty(baseFolder))
             {
@@ -56,11 +55,11 @@ namespace RarityGenGen
             int counter = 1;
             foreach (var set in combiGen.itemSets)
             {
-                var fullset = $"{set.Image1 ?? "None"}-{set.Image2 ?? "None"}-{set.Image3 ?? "None"}-{set.Image4 ?? "None"}-{set.Image5 ?? "None"}-{set.Image6 ?? "None"}";
+                var fullset = $"{set.Image1 ?? "None"}-{set.Image2 ?? "None"}-{set.Image3 ?? "None"}-{set.Image4 ?? "None"}-{set.Image5 ?? "None"}";
                 if(sets.Add(fullset))
                 {
                     Console.WriteLine(fullset);
-                    var outputImageName = imageOverlayer.GenerateImages(counter, set.Image1, set.Image2, set.Image3, set.Image4, set.Image5, set.Image6, baseFolder+"Images");
+                    var outputImageName = imageOverlayer.GenerateImages(counter, set.Image1, set.Image2, set.Image3, set.Image4, set.Image5, null, baseFolder+"Images");
                     combiGen.FillInMetadataModel(set.Image1, set.Image2, set.Image3, set.Image4, set.Image5, set.Image6, outputImageName);
                     counter++;
                 }
@@ -72,5 +71,31 @@ namespace RarityGenGen
 
             StaticUtils.WriteMetadataAttributesToCSV(baseFolder);
         }
+    }
+
+    class Options
+    {
+        [Option('f', "folder", Required = false, HelpText = "folder to look for images, csv.")]
+        public string BaseFolder { get; set; }
+
+        [Option('s', "size", Default = 100, Required = false, HelpText = "Default size of randomized items to generate, default is 100.")]
+        public int? size { get; set; }
+
+        //[Option('p', "projectName", Default = 100, Required = false, HelpText = "Default size of randomize items to generate, default is 100.")]
+        //public int size { get; set; }
+
+        //// Omitting long name, defaults to name of property, ie "--verbose"
+        //[Option(
+        //  Default = false,
+        //  HelpText = "Prints all messages to standard output.")]
+        //public bool Verbose { get; set; }
+
+        //[Option("stdin",
+        //  Default = false,
+        //  HelpText = "Read from stdin")]
+        //public bool stdin { get; set; }
+
+        //[Value(0, MetaName = "offset", HelpText = "File offset.")]
+        //public long? Offset { get; set; }
     }
 }

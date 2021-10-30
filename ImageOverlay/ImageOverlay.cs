@@ -9,6 +9,8 @@ namespace ImageOverlay
     {
         readonly string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).FullName;
         public const string OutputPrefix = "Output";
+        public const int WebDPI = 72;
+
         public string GenerateImages(int counter, string image01 = null, string image02 = null, string image03 = null, string image04 = null, string image05 = null, string image06 = null, string baseFolder = null)
         {
             try
@@ -19,15 +21,23 @@ namespace ImageOverlay
                     folder += @"\";
                 }
 
-                Image baseImage = Image.FromFile(folder + "FSJAL.png");
+                Bitmap baseImageBMP = new Bitmap(folder + "FSJAL.png");
+                baseImageBMP.SetResolution(WebDPI, WebDPI);
+                Image baseImage = baseImageBMP;
+                //Image baseImage = Image.FromFile(folder + "FSJAL.png");
                 
-                Image img = new Bitmap(baseImage.Width, baseImage.Height);
+                var bitmap = new Bitmap(baseImage.Width, baseImage.Height);
+                bitmap.SetResolution(WebDPI, WebDPI);
+
+                Image img = bitmap;
                 using (Graphics gr = Graphics.FromImage(img))
                 {
                     //background first
                     if (!string.IsNullOrEmpty(image01))
                     {
-                        Image image1 = Image.FromFile(folder + image01);
+                        Bitmap i1 = new Bitmap(folder + image01);
+                        i1.SetResolution(WebDPI, WebDPI);
+                        Image image1 = i1;
                         gr.DrawImage(image1, new Point(0, 0));
                     }
 
@@ -36,31 +46,41 @@ namespace ImageOverlay
 
                     if (!string.IsNullOrEmpty(image02))
                     {
-                        Image image2 = Image.FromFile(folder + image02);
+                        Bitmap i2 = new Bitmap(folder + image02);
+                        i2.SetResolution(WebDPI, WebDPI);
+                        Image image2 = i2;
                         gr.DrawImage(image2, new Point(0, 0));
                     }
 
                     if (!string.IsNullOrEmpty(image03))
                     {
-                        Image image3 = Image.FromFile(folder + image03);
+                        Bitmap i3 = new Bitmap(folder + image03);
+                        i3.SetResolution(WebDPI, WebDPI);
+                        Image image3 = i3;
                         gr.DrawImage(image3, new Point(0, 0));
                     }
 
                     if (!string.IsNullOrEmpty(image04))
                     {
-                        Image image4 = Image.FromFile(folder + image04);
+                        Bitmap i4 = new Bitmap(folder + image04);
+                        i4.SetResolution(WebDPI, WebDPI);
+                        Image image4 = i4;
                         gr.DrawImage(image4, new Point(0, 0));
                     }
 
                     if (!string.IsNullOrEmpty(image05))
                     {
-                        Image image5 = Image.FromFile(folder + image05);
+                        Bitmap i5 = new Bitmap(folder + image05);
+                        i5.SetResolution(WebDPI, WebDPI);
+                        Image image5 = i5;
                         gr.DrawImage(image5, new Point(0, 0));
                     }
 
                     if (!string.IsNullOrEmpty(image06))
                     {
-                        Image image6 = Image.FromFile(folder + image06);
+                        Bitmap i6 = new Bitmap(folder + image06);
+                        i6.SetResolution(WebDPI, WebDPI);
+                        Image image6 = i6;
                         gr.DrawImage(image6, new Point(0, 0));
                     }
                 }

@@ -9,6 +9,7 @@ namespace ImageOverlay
     {
         readonly string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).FullName;
         public const string OutputPrefix = "Output";
+        public const string FilePrefix = "fsjal";
         public const int WebDPI = 72;
 
         public string GenerateImages(int counter, string image01 = null, string image02 = null, string image03 = null, string image04 = null, string image05 = null, string image06 = null, string baseFolder = null)
@@ -100,9 +101,9 @@ namespace ImageOverlay
 
                 if (!exists)
                     System.IO.Directory.CreateDirectory(outputDirectory);
-                img.Save(outputDirectory + @"\output"+counter+".png", ImageFormat.Png);
+                img.Save(outputDirectory + @"\fsjal"+counter+".png", ImageFormat.Png);
 
-                return OutputPrefix + counter + ".png";
+                return FilePrefix + counter + ".png";
             }
             catch (Exception ex)
             {

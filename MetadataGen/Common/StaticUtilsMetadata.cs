@@ -60,7 +60,8 @@ namespace MetadataGen.Common
                             Body_Name = body,
                             Equipment_Name = eq,
                             ImageLocation = "Output\\" + imgLocation,
-                            NFTMakerMetadata = new MetadataNftMakerModel() { MetadataPlaceholders = new List<MetadataPlaceholderModel>()},
+                            
+                            NFTMakerMetadata = new MetadataNftMakerModel() { PreviewImageNftModel = new PreviewImageNFT() { MetadataPlaceholders = new List<MetadataPlaceholderModel>() } },
 
                             //AssetName = imgLocation.Replace(".png", string.Empty),
                             //MimeType = "image/" + ImageTypeEnum.PNG.ToString(),
@@ -78,16 +79,18 @@ namespace MetadataGen.Common
             }
         }
 
-        //public static void WriteMetadataAttributesToCSV(string csvDirectory = null)
-        //{
-        //    var directory = csvDirectory ?? projectDirectory;
+        public static void PrepareMetadataForUpload(string csvDirectory = null)
+        {
+            var directory = csvDirectory ?? projectDirectory;
 
-        //    using (var writer = new StreamWriter(Path.Combine(directory, "Csv", "MetadataAttributes.csv")))
-        //    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-        //    {
-        //        csv.WriteRecords(Globals.ItemMetadataList);
-        //    }
-        //}
+            //loop through every model and generate a txt file for each nft
+
+            //using (var writer = new StreamWriter(Path.Combine(directory, "Csv", "MetadataAttributes.csv")))
+            //using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            //{
+            //    csv.WriteRecords(Globals.ItemMetadataList);
+            //}
+        }
     }
 }
 

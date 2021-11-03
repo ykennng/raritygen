@@ -36,7 +36,7 @@ namespace MetadataGen
             StaticUtilsMetadata.ReadCsv(imageFolder);
 
             MetadataGenerator metaGen = new MetadataGenerator();
-            metaGen.Generate();
+            metaGen.Generate(imageFolder);
 
         }
 

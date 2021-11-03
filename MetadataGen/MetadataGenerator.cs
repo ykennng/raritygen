@@ -12,9 +12,9 @@ namespace MetadataGen
 {
     public class MetadataGenerator
     {
-        public void Generate()
+        public void Generate(string folder)
         {
-            string[] metadataKeys = { ConstantsMetadata.Background, ConstantsMetadata.Skin, ConstantsMetadata.Head, ConstantsMetadata.Body, ConstantsMetadata.Equipment, ConstantsMetadata.Nft_Name, ConstantsMetadata.Website_url, ConstantsMetadata.CopyrightText };
+            string[] metadataKeys = { ConstantsMetadata.Background, ConstantsMetadata.Skin, ConstantsMetadata.Head, ConstantsMetadata.Body, ConstantsMetadata.Equipment };
             var metas = StaticUtilsMetadata.MetadataModels;
             
             foreach (var meta in metas)
@@ -27,7 +27,7 @@ namespace MetadataGen
                         var value = StaticUtilsMetadata.GetPropValue(meta, key);
                         if (value != null)
                         {
-                            meta.NFTMakerMetadata.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = key, Value = value.ToString() });
+                            meta.NFTMakerMetadata.PreviewImageNftModel.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = key, Value = value.ToString() });
                         }
                     }
                     catch(Exception ex)
@@ -36,6 +36,14 @@ namespace MetadataGen
                         continue;
                     }
                 }
+
+                var base64 = ConvertImageToBase64($"{folder}\\Images\\{meta.ImageLocation}");
+                
+                meta.NFTMakerMetadata.PreviewImageNftModel.FileFromBase64 = base64;
+                meta.NFTMakerMetadata.PreviewImageNftModel.MimeType = $"image/png";
+                meta.NFTMakerMetadata.PreviewImageNftModel.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = ConstantsMetadata.Nft_Name, Value = meta.Name });
+                meta.NFTMakerMetadata.PreviewImageNftModel.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = ConstantsMetadata.Website_url, Value = ConstantsMetadata.WebsiteUrlContent });
+                meta.NFTMakerMetadata.PreviewImageNftModel.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = ConstantsMetadata.CopyrightText, Value = ConstantsMetadata.CopyrightTextContent });
             }
         }
 
@@ -52,7 +60,7 @@ namespace MetadataGen
             {
                 using (MemoryStream m = new MemoryStream())
                 {
-                    //image.Save(m, image.RawFormat);
+                    image.Save(m, image.RawFormat);
                     byte[] imageBytes = m.ToArray();
 
                     // Convert byte[] to Base64 String

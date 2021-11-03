@@ -1,86 +1,78 @@
 Background_Name,Skin_Name,Head_Name,Body_Name,Equipment_Name,OutputImageLocation
-Game_Shapes,White,Akatsuki,Yellow Spiky,Red Saber,Output1.png
-Game_Shapes,White,Brown Coat Scarf,Black Mullet,Zangetsu,Output2.png
-Game_Shapes,White,Squid_Suit,Yellow Spiky,Pistol,Output3.png
-Aqua,Orange,Squid_Suit,Black Mullet,Fork,Output4.png
-Aqua,White,Brown Coat Scarf,Bowler,Red Saber,Output5.png
-Aqua,White,Akatsuki,Black Mullet,Red Saber,Output6.png
-Game_Shapes,Orange,Brown Coat Scarf,Yellow Spiky,Fork,Output7.png
-Aqua,Orange,Squid_Suit,Bowler,Stick,Output8.png
-Aqua,Orange,Akatsuki,Yellow Spiky,Stick,Output9.png
-Game_Shapes,Orange,Brown Coat Scarf,Yellow Spiky,Red Saber,Output10.png
-Aqua,Orange,Squid_Suit,Squid_Tri,Red Saber,Output11.png
-Aqua,Orange,Brown Coat Scarf,Yellow Spiky,Fork,Output12.png
-Game_Shapes,White,Brown Coat Scarf,Bowler,Red Saber,Output13.png
-Aqua,Orange,Brown Coat Scarf,Bowler,Red Saber,Output14.png
-Game_Shapes,Orange,Squid_Suit,Squid_Tri,Fork,Output15.png
-Aqua,Orange,Brown Coat Scarf,Yellow Spiky,Pistol,Output16.png
-Aqua,Orange,Brown Coat Scarf,Squid_Tri,Pistol,Output17.png
-Aqua,White,Akatsuki,Yellow Spiky,Fork,Output18.png
-Game_Shapes,White,Brown Coat Scarf,Bowler,Stick,Output19.png
-Game_Shapes,Orange,Squid_Suit,Yellow Spiky,Pistol,Output20.png
-Aqua,White,Brown Coat Scarf,Yellow Spiky,Stick,Output21.png
-Game_Shapes,Orange,Akatsuki,Yellow Spiky,Zangetsu,Output22.png
-Aqua,Orange,Brown Coat Scarf,Bowler,Fork,Output23.png
-Aqua,White,Brown Coat Scarf,Black Mullet,Red Saber,Output24.png
-Game_Shapes,Orange,Squid_Suit,Bowler,Fork,Output25.png
-Aqua,Orange,Brown Coat Scarf,Black Mullet,Fork,Output26.png
-Game_Shapes,White,Squid_Suit,Bowler,Red Saber,Output27.png
-Aqua,Orange,Brown Coat Scarf,Black Mullet,Red Saber,Output28.png
-Game_Shapes,White,Squid_Suit,Black Mullet,Stick,Output29.png
-Game_Shapes,Orange,Squid_Suit,Black Mullet,Fork,Output30.png
-Game_Shapes,Orange,Squid_Suit,Yellow Spiky,Red Saber,Output31.png
-Aqua,White,Brown Coat Scarf,Yellow Spiky,Pistol,Output32.png
-Game_Shapes,Orange,Akatsuki,Black Mullet,Pistol,Output33.png
-Aqua,White,Squid_Suit,Bowler,Stick,Output34.png
-Aqua,White,Akatsuki,Black Mullet,Fork,Output35.png
-Aqua,White,Squid_Suit,Yellow Spiky,Fork,Output36.png
-Aqua,Orange,Squid_Suit,Black Mullet,Zangetsu,Output37.png
-Aqua,White,Squid_Suit,Squid_Tri,Red Saber,Output38.png
-Aqua,Orange,Akatsuki,Black Mullet,Red Saber,Output39.png
-Game_Shapes,White,Squid_Suit,Squid_Tri,Pistol,Output40.png
-Aqua,White,Squid_Suit,Yellow Spiky,Zangetsu,Output41.png
-Game_Shapes,Orange,Squid_Suit,Bowler,Zangetsu,Output42.png
-Aqua,White,Akatsuki,Squid_Tri,Zangetsu,Output43.png
-Aqua,White,Akatsuki,Black Mullet,Stick,Output44.png
-Aqua,Orange,Akatsuki,Bowler,Stick,Output45.png
-Aqua,White,Squid_Suit,Black Mullet,Stick,Output46.png
-Aqua,Orange,Akatsuki,Black Mullet,Zangetsu,Output47.png
-Game_Shapes,Orange,Akatsuki,Black Mullet,Red Saber,Output48.png
-Aqua,White,Brown Coat Scarf,Black Mullet,Fork,Output49.png
-Aqua,Orange,Akatsuki,Yellow Spiky,Red Saber,Output50.png
-Game_Shapes,Orange,Squid_Suit,Black Mullet,Stick,Output51.png
-Aqua,White,Brown Coat Scarf,Black Mullet,Stick,Output52.png
-Game_Shapes,Orange,Brown Coat Scarf,Squid_Tri,Pistol,Output53.png
-Aqua,Orange,Brown Coat Scarf,Yellow Spiky,Stick,Output54.png
-Aqua,White,Squid_Suit,Black Mullet,Pistol,Output55.png
-Game_Shapes,Orange,Akatsuki,Bowler,Stick,Output56.png
-Game_Shapes,Orange,Brown Coat Scarf,Bowler,Pistol,Output57.png
-Game_Shapes,Orange,Brown Coat Scarf,Bowler,Red Saber,Output58.png
-Aqua,Orange,Akatsuki,Squid_Tri,Stick,Output59.png
-Game_Shapes,White,Akatsuki,Black Mullet,Stick,Output60.png
-Aqua,Orange,Akatsuki,Yellow Spiky,Zangetsu,Output61.png
-Game_Shapes,White,Brown Coat Scarf,Squid_Tri,Stick,Output62.png
-Game_Shapes,Orange,Akatsuki,Yellow Spiky,Stick,Output63.png
-Game_Shapes,Orange,Squid_Suit,Bowler,Red Saber,Output64.png
-Game_Shapes,Orange,Brown Coat Scarf,Black Mullet,Pistol,Output65.png
-Aqua,White,Brown Coat Scarf,Bowler,Pistol,Output66.png
-Aqua,White,Brown Coat Scarf,Bowler,Stick,Output67.png
-Aqua,Orange,Brown Coat Scarf,Bowler,Stick,Output68.png
-Game_Shapes,Orange,Brown Coat Scarf,Bowler,Stick,Output69.png
-Game_Shapes,Orange,Akatsuki,Yellow Spiky,Pistol,Output70.png
-Aqua,Orange,Akatsuki,Bowler,Red Saber,Output71.png
-Game_Shapes,Orange,Akatsuki,Black Mullet,Stick,Output72.png
-Aqua,Orange,Brown Coat Scarf,Black Mullet,Pistol,Output73.png
-Aqua,White,Squid_Suit,Black Mullet,Red Saber,Output74.png
-Aqua,Orange,Squid_Suit,Yellow Spiky,Zangetsu,Output75.png
-Aqua,Orange,Akatsuki,Black Mullet,Stick,Output76.png
-Aqua,Orange,Squid_Suit,Bowler,Fork,Output77.png
-Game_Shapes,Orange,Brown Coat Scarf,Yellow Spiky,Zangetsu,Output78.png
-Game_Shapes,Orange,Brown Coat Scarf,Yellow Spiky,Stick,Output79.png
-Game_Shapes,Orange,Squid_Suit,Black Mullet,Zangetsu,Output80.png
-Game_Shapes,Orange,Squid_Suit,Yellow Spiky,Stick,Output81.png
-Aqua,White,Brown Coat Scarf,Squid_Tri,Zangetsu,Output82.png
-Game_Shapes,White,Brown Coat Scarf,Bowler,Fork,Output83.png
-Aqua,White,Akatsuki,Yellow Spiky,Pistol,Output84.png
-Aqua,White,Squid_Suit,Yellow Spiky,Pistol,Output85.png
+Haha,White,Squid_Suit,Red Saber,Black Mullet,fsjal1.png
+Haha,nude,Squid_Suit,Red Saber,Yellow Spiky,fsjal2.png
+Aqua,White,Clown Body,Zangetsu,Clown Head,fsjal3.png
+Aqua,nude,Clown Body,Red Saber,Black Mullet,fsjal4.png
+Aqua,nude,Clown Body,Red Saber,Yellow Spiky,fsjal5.png
+Aqua,White,Squid_Suit,Zangetsu,Yellow Spiky,fsjal6.png
+Game_Shapes,nude,Squid_Suit,Zangetsu,Black Mullet,fsjal7.png
+Aqua,nude,Squid_Suit,Pistol,Clown Head,fsjal8.png
+Aqua,White,Clown Body,Pistol,Clown Head,fsjal9.png
+Game_Shapes,White,Clown Body,Zangetsu,Squid_Tri,fsjal10.png
+Haha,White,Squid_Suit,Zangetsu,Black Mullet,fsjal11.png
+Aqua,White,Squid_Suit,Zangetsu,Clown Head,fsjal12.png
+Game_Shapes,nude,Clown Body,Pistol,Squid_Tri,fsjal13.png
+Game_Shapes,nude,Clown Body,Red Saber,Black Mullet,fsjal14.png
+Aqua,nude,Akatsuki,Pistol,Yellow Spiky,fsjal15.png
+Game_Shapes,White,Squid_Suit,Pistol,Yellow Spiky,fsjal16.png
+Aqua,White,Akatsuki,Pistol,Black Mullet,fsjal17.png
+Haha,White,Squid_Suit,Pistol,Yellow Spiky,fsjal18.png
+Game_Shapes,White,Clown Body,Pistol,Clown Head,fsjal19.png
+Game_Shapes,nude,Squid_Suit,Red Saber,Clown Head,fsjal20.png
+Game_Shapes,nude,Akatsuki,Red Saber,Clown Head,fsjal21.png
+Haha,nude,Squid_Suit,Zangetsu,Clown Head,fsjal22.png
+Game_Shapes,White,Squid_Suit,Zangetsu,Clown Head,fsjal23.png
+Aqua,White,Squid_Suit,Zangetsu,Black Mullet,fsjal24.png
+Haha,White,Squid_Suit,Pistol,Clown Head,fsjal25.png
+Aqua,nude,Clown Body,Zangetsu,Black Mullet,fsjal26.png
+Haha,White,Squid_Suit,Red Saber,Yellow Spiky,fsjal27.png
+Aqua,nude,Akatsuki,Red Saber,Yellow Spiky,fsjal28.png
+Game_Shapes,nude,Squid_Suit,Zangetsu,Yellow Spiky,fsjal29.png
+Haha,White,Clown Body,Pistol,Clown Head,fsjal30.png
+Aqua,White,Akatsuki,Zangetsu,Yellow Spiky,fsjal31.png
+Haha,White,Akatsuki,Red Saber,Yellow Spiky,fsjal32.png
+Haha,nude,Squid_Suit,Pistol,Squid_Tri,fsjal33.png
+Haha,White,Clown Body,Red Saber,Clown Head,fsjal34.png
+Aqua,nude,Squid_Suit,Pistol,Squid_Tri,fsjal35.png
+Aqua,nude,Squid_Suit,Zangetsu,Yellow Spiky,fsjal36.png
+Aqua,White,Akatsuki,Red Saber,Yellow Spiky,fsjal37.png
+Game_Shapes,White,Squid_Suit,Red Saber,Clown Head,fsjal38.png
+Game_Shapes,nude,Clown Body,Zangetsu,Black Mullet,fsjal39.png
+Haha,nude,Clown Body,Pistol,Clown Head,fsjal40.png
+Haha,nude,Squid_Suit,Red Saber,Black Mullet,fsjal41.png
+Game_Shapes,nude,Squid_Suit,Zangetsu,Clown Head,fsjal42.png
+Game_Shapes,White,Clown Body,Red Saber,Squid_Tri,fsjal43.png
+Aqua,nude,Akatsuki,Red Saber,Clown Head,fsjal44.png
+Aqua,White,Clown Body,Zangetsu,Black Mullet,fsjal45.png
+Haha,nude,Clown Body,Red Saber,Black Mullet,fsjal46.png
+Aqua,White,Akatsuki,Zangetsu,Squid_Tri,fsjal47.png
+Haha,nude,Akatsuki,Pistol,Squid_Tri,fsjal48.png
+Haha,nude,Clown Body,Red Saber,Yellow Spiky,fsjal49.png
+Aqua,nude,Akatsuki,Pistol,Black Mullet,fsjal50.png
+Haha,nude,Clown Body,Pistol,Yellow Spiky,fsjal51.png
+Game_Shapes,White,Clown Body,Zangetsu,Yellow Spiky,fsjal52.png
+Game_Shapes,nude,Clown Body,Zangetsu,Yellow Spiky,fsjal53.png
+Game_Shapes,nude,Squid_Suit,Pistol,Clown Head,fsjal54.png
+Game_Shapes,nude,Clown Body,Red Saber,Yellow Spiky,fsjal55.png
+Game_Shapes,White,Clown Body,Zangetsu,Black Mullet,fsjal56.png
+Haha,nude,Clown Body,Zangetsu,Black Mullet,fsjal57.png
+Game_Shapes,White,Akatsuki,Pistol,Clown Head,fsjal58.png
+Haha,White,Squid_Suit,Zangetsu,Squid_Tri,fsjal59.png
+Game_Shapes,nude,Squid_Suit,Pistol,Yellow Spiky,fsjal60.png
+Aqua,White,Squid_Suit,Pistol,Black Mullet,fsjal61.png
+Haha,nude,Squid_Suit,Pistol,Yellow Spiky,fsjal62.png
+Haha,nude,Squid_Suit,Pistol,Black Mullet,fsjal63.png
+Game_Shapes,White,Clown Body,Red Saber,Yellow Spiky,fsjal64.png
+Haha,White,Akatsuki,Pistol,Clown Head,fsjal65.png
+Haha,White,Akatsuki,Pistol,Yellow Spiky,fsjal66.png
+Game_Shapes,White,Squid_Suit,Zangetsu,Black Mullet,fsjal67.png
+Haha,White,Akatsuki,Red Saber,Squid_Tri,fsjal68.png
+Aqua,White,Akatsuki,Red Saber,Clown Head,fsjal69.png
+Haha,nude,Clown Body,Zangetsu,Squid_Tri,fsjal70.png
+Haha,White,Akatsuki,Zangetsu,Clown Head,fsjal71.png
+Game_Shapes,White,Clown Body,Pistol,Yellow Spiky,fsjal72.png
+Haha,nude,Akatsuki,Pistol,Black Mullet,fsjal73.png
+Haha,White,Clown Body,Zangetsu,Squid_Tri,fsjal74.png
+Haha,nude,Akatsuki,Pistol,Yellow Spiky,fsjal75.png
+Aqua,White,Akatsuki,Pistol,Clown Head,fsjal76.png
+Aqua,nude,Squid_Suit,Red Saber,Black Mullet,fsjal77.png

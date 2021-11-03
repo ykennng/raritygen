@@ -9,7 +9,7 @@ namespace RarityGenGen.Common
         Background,
         Skin,
         Body,
-        Head,
-        Equipment
+        Equipment,
+        Head
     }
 }

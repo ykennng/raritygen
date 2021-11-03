@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MetadataGen.Common;
 using MetadataGen.Model;
 using MetadataGen;
-//using CommandLine;
+using CommandLine;
 using System.IO;
 
 namespace MetadataGen
@@ -13,22 +13,15 @@ namespace MetadataGen
         static void Main(string[] args)
         {
             string imageFolder = string.Empty;
-            int size = 100; //default size
-            // TODO: use commandlineparser 
-            if (args.Length != 0)
-            {
-                for (int i = 0; i < args.Length; i++)
-                {
-                    if (args[i] == "-f")
-                    {
-                        imageFolder = args[i + 1];
-                    }
-                    else if (args[i] == "-s")
-                    {
-                        size = Int32.Parse(args[i + 1]);
-                    }
-                }
-            }
+
+            Parser.Default.ParseArguments<Options>(args)
+               .WithParsed<Options>(o =>
+               {
+                   if (!string.IsNullOrEmpty(o.BaseFolder))
+                   {
+                       imageFolder = o.BaseFolder;
+                   }
+               });
 
             if (string.IsNullOrEmpty(imageFolder))
             {
@@ -40,8 +33,26 @@ namespace MetadataGen
             }
 
             HashSet<string> sets = new HashSet<string>();
-            StaticUtils.ReadCsv(imageFolder);
+            StaticUtilsMetadata.ReadCsv(imageFolder);
 
+            MetadataGenerator metaGen = new MetadataGenerator();
+            metaGen.Generate();
+
+        }
+
+        class Options
+        {
+            [Option('f', "folder", Required = false, HelpText = "folder to look for generated images")]
+            public string BaseFolder { get; set; }
+
+            [Option('u', "upload", Required = false, Default = false, HelpText = "boolean flag on whether to upload or not")]
+            public bool ToUpload { get; set; }
+
+            [Option('a', "apikey", Required = false, HelpText = "apikey to upload, include together with projectId  if 'u' is true")]
+            public string ApiKey { get; set; }
+
+            [Option('p', "projectId", Required = false, HelpText = "projectId to upload to, include together with apikey if 'u' is true")]
+            public string ProjectId { get; set; }
         }
     }
 }

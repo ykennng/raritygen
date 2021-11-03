@@ -9,8 +9,9 @@ using MetadataGen.Model;
 
 namespace MetadataGen.Common
 {
-    public static class StaticUtils
+    public static class StaticUtilsMetadata
     {
+        public static List<MetadataModel> MetadataModels = new List<MetadataModel>();
         static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).FullName;
         static CsvConfiguration csvReaderConfig = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture)
         {
@@ -20,6 +21,10 @@ namespace MetadataGen.Common
             IgnoreBlankLines = false
         };
 
+        public static object GetPropValue(object src, string propName)
+        {
+            return src.GetType().GetProperty(propName).GetValue(src, null);
+        }
 
         public static void ReadCsv(string csvDirectory = null)
         {
@@ -41,8 +46,25 @@ namespace MetadataGen.Common
                         var head = csv.GetField<string>(ConstantsMetadata.Head);
                         var body = csv.GetField<string>(ConstantsMetadata.Body);
                         var eq = csv.GetField<string>(ConstantsMetadata.Equipment);
+                        var imgLocation = csv.GetField<string>(ConstantsMetadata.OutputImageLocation);
 
                         Console.WriteLine($"{background ?? "?"}-{ skin ?? "?"}-{ head ?? "?"}-{ body ?? "?"}-{ eq ?? "?"}");
+                        
+                        MetadataModels.Add(
+                        new MetadataModel()
+                        {
+                            Name = imgLocation.Replace(".png", string.Empty),
+                            Background_Name = background,
+                            Skin_Name = skin,
+                            Head_Name = head,
+                            Body_Name = body,
+                            Equipment_Name = eq,
+                            ImageLocation = "Output\\" + imgLocation,
+                            NFTMakerMetadata = new MetadataNftMakerModel() { MetadataPlaceholders = new List<MetadataPlaceholderModel>()},
+
+                            //AssetName = imgLocation.Replace(".png", string.Empty),
+                            //MimeType = "image/" + ImageTypeEnum.PNG.ToString(),
+                        });
                     }
                 }
             }

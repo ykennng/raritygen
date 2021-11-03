@@ -13,7 +13,7 @@
         "copyright": "<copyright_text>",
         "image": "<ipfs_link>",
         "mediaType": "<mime_type>",
-        "name": "<project_name>",
+        "name": "<nft_name>",
        "website": "<website_url>"
       }
     },
@@ -50,8 +50,8 @@
           "value": "eq dudu"
         },
 		{
-          "name": "project_name",
-          "value": "projj"
+          "name": "nft_name",
+          "value": "fsjal - 1"
         },
 		{
           "name": "website_url",

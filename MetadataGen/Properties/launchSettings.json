@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MetadataGen": {
+      "commandName": "Project",
+      "commandLineArgs": "-f \"C:\\Users\\Rig Mk-II SSD\\source\\repos\\raritygen\\RarityGenGen\""
+    }
+  }
+}

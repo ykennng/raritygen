@@ -2,7 +2,7 @@
   "profiles": {
     "MetadataGen": {
       "commandName": "Project",
-      "commandLineArgs": "-f \"C:\\Users\\Rig Mk-II SSD\\source\\repos\\raritygen\\RarityGenGen\""
+      "commandLineArgs": "-f \"C:\\Users\\Rig Mk-II SSD\\source\\repos\\raritygen\\RarityGenGen\" -p \"testprojid\" -a \"someapikey\" -n \"somename\""
     }
   }
 }

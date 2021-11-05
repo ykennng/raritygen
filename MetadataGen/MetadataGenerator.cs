@@ -7,6 +7,9 @@ using MetadataGen.Common;
 using MetadataGen.Model;
 using System.IO;
 using System.Drawing;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Net.Http;
 
 namespace MetadataGen
 {
@@ -38,16 +41,39 @@ namespace MetadataGen
                 }
 
                 var base64 = ConvertImageToBase64($"{folder}\\Images\\{meta.ImageLocation}");
-                
+                meta.NFTMakerMetadata.AssetName = meta.Name;
                 meta.NFTMakerMetadata.PreviewImageNftModel.FileFromBase64 = base64;
                 meta.NFTMakerMetadata.PreviewImageNftModel.MimeType = $"image/png";
                 meta.NFTMakerMetadata.PreviewImageNftModel.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = ConstantsMetadata.Nft_Name, Value = meta.Name });
                 meta.NFTMakerMetadata.PreviewImageNftModel.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = ConstantsMetadata.Website_url, Value = ConstantsMetadata.WebsiteUrlContent });
                 meta.NFTMakerMetadata.PreviewImageNftModel.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = ConstantsMetadata.CopyrightText, Value = ConstantsMetadata.CopyrightTextContent });
+                meta.NFTMakerMetadata.PreviewImageNftModel.MetadataPlaceholders.Add(new MetadataPlaceholderModel() { Name = ConstantsMetadata.Project_name, Value = "" });
             }
         }
 
-        
+        public void GenerateJsonToFileOrUpload(bool toUpload = false)
+        {
+            List<string> jsonObjects = new List<string>();
+            var metas = StaticUtilsMetadata.MetadataModels;
+            foreach(var meta in metas)
+            {
+                var serializedObject = JsonConvert.SerializeObject(meta.NFTMakerMetadata);
+                jsonObjects.Add(serializedObject);
+
+                //UriBuilder builder = new UriBuilder(ConstantsMetadata.Url);
+                //if(toUpload)
+                //{
+                //    var client = new HttpClient
+                //    {
+                //        BaseAddress = new Uri("https://api.nft-maker.io/UploadNft/"),
+                //    };
+                //    client.
+                //}
+            }
+
+
+
+        }
 
         public MetadataPlaceholderModel CreateMetadataPlaceholder(string key, string value)
         {
@@ -63,7 +89,6 @@ namespace MetadataGen
                     image.Save(m, image.RawFormat);
                     byte[] imageBytes = m.ToArray();
 
-                    // Convert byte[] to Base64 String
                     string base64String = Convert.ToBase64String(imageBytes);
                     return base64String;
                 }

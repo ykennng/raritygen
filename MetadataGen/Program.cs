@@ -13,6 +13,10 @@ namespace MetadataGen
         static void Main(string[] args)
         {
             string imageFolder = string.Empty;
+            bool toUpload = false;
+            string projectId = string.Empty;
+            string projectName = string.Empty;
+            string apiKey = string.Empty;
 
             Parser.Default.ParseArguments<Options>(args)
                .WithParsed<Options>(o =>
@@ -20,6 +24,23 @@ namespace MetadataGen
                    if (!string.IsNullOrEmpty(o.BaseFolder))
                    {
                        imageFolder = o.BaseFolder;
+                   }
+
+                   toUpload = o.ToUpload;
+
+                   if (!string.IsNullOrEmpty(o.ApiKey))
+                   {
+                       apiKey = o.ApiKey;
+                   }
+
+                   if (!string.IsNullOrEmpty(o.ProjectId))
+                   {
+                       projectId = o.ProjectId;
+                   }
+
+                   if (!string.IsNullOrEmpty(o.ProjectName))
+                   {
+                       projectName = o.ProjectName;
                    }
                });
 
@@ -37,7 +58,7 @@ namespace MetadataGen
 
             MetadataGenerator metaGen = new MetadataGenerator();
             metaGen.Generate(imageFolder);
-
+            metaGen.GenerateJsonToFileOrUpload(toUpload);
         }
 
         class Options
@@ -53,6 +74,9 @@ namespace MetadataGen
 
             [Option('p', "projectId", Required = false, HelpText = "projectId to upload to, include together with apikey if 'u' is true")]
             public string ProjectId { get; set; }
+
+            [Option('n', "projectName", Required = false, HelpText = "project Name for metadata")]
+            public string ProjectName { get; set; }
         }
     }
 }

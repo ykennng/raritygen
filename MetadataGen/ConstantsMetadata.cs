@@ -15,10 +15,14 @@ namespace MetadataGen
         public const string Nft_Name = "nft_name";
         public const string Website_url = "Website_Url";
         public const string CopyrightText = "Copyright_Text";
+        public const string Project_name = "Project_name";
 
+        public const string Url = @"https://api.nft-maker.io/";
 
         public const string CopyrightTextContent = "Some text here loremmmm";
         public const string WebsiteUrlContent = "fsjal.com.test";
+        //public const string ProjectNameContent = "fsjal.com.test";
+
         public const string nftNamePrefix = "FSJAL";
 
         public const string OutputImageLocation = "OutputImageLocation";

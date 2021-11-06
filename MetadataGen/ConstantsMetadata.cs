@@ -18,6 +18,7 @@ namespace MetadataGen
         public const string Project_name = "Project_name";
 
         public const string Url = @"https://api.nft-maker.io/";
+        public const string Upload = @"UploadNft";
 
         public const string CopyrightTextContent = "Some text here loremmmm";
         public const string WebsiteUrlContent = "fsjal.com.test";

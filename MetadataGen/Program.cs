@@ -58,7 +58,8 @@ namespace MetadataGen
 
             MetadataGenerator metaGen = new MetadataGenerator();
             metaGen.Generate(imageFolder);
-            metaGen.GenerateJsonToFileOrUpload(toUpload);
+            var uploadResponse = metaGen.GenerateJsonToFileOrUpload(apiKey, projectId, toUpload);
+            uploadResponse.Wait();
         }
 
         class Options

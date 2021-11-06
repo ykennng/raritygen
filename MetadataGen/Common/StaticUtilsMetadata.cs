@@ -62,9 +62,6 @@ namespace MetadataGen.Common
                             ImageLocation = "Output\\" + imgLocation,
                             
                             NFTMakerMetadata = new MetadataNftMakerModel() { PreviewImageNftModel = new PreviewImageNFT() { MetadataPlaceholders = new List<MetadataPlaceholderModel>() } },
-
-                            //AssetName = imgLocation.Replace(".png", string.Empty),
-                            //MimeType = "image/" + ImageTypeEnum.PNG.ToString(),
                         });
                     }
                 }

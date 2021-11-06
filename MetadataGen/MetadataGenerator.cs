@@ -10,6 +10,9 @@ using System.Drawing;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Json;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace MetadataGen
 {
@@ -22,11 +25,12 @@ namespace MetadataGen
             
             foreach (var meta in metas)
             {
-                foreach(var key in metadataKeys)
+                Console.WriteLine($"Generating metadata placeholders for : {meta.ImageLocation}");
+                foreach (var key in metadataKeys)
                 {
                     try
                     {
-                        Console.WriteLine($"Generating metadata placeholders for : {meta.ImageLocation} - {key}");
+                        //Console.WriteLine($"Generating metadata placeholders for : {meta.ImageLocation} - {key}");
                         var value = StaticUtilsMetadata.GetPropValue(meta, key);
                         if (value != null)
                         {
@@ -51,28 +55,41 @@ namespace MetadataGen
             }
         }
 
-        public void GenerateJsonToFileOrUpload(bool toUpload = false)
+        public async Task<bool> GenerateJsonToFileOrUpload(string apikey, string projectId,  bool toUpload = false)
         {
             List<string> jsonObjects = new List<string>();
             var metas = StaticUtilsMetadata.MetadataModels;
-            foreach(var meta in metas)
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri($"{ConstantsMetadata.Url}"),
+            };
+
+            foreach (var meta in metas)
             {
                 var serializedObject = JsonConvert.SerializeObject(meta.NFTMakerMetadata);
                 jsonObjects.Add(serializedObject);
 
-                //UriBuilder builder = new UriBuilder(ConstantsMetadata.Url);
-                //if(toUpload)
-                //{
-                //    var client = new HttpClient
-                //    {
-                //        BaseAddress = new Uri("https://api.nft-maker.io/UploadNft/"),
-                //    };
-                //    client.
-                //}
+                if (toUpload)
+                {
+                    var buffer = System.Text.Encoding.UTF8.GetBytes(serializedObject);
+                    var byteContent = new ByteArrayContent(buffer);
+                    byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                    try
+                    {
+                        var response = await client.PostAsync($"{ConstantsMetadata.Upload}/{apikey}/{projectId}", byteContent);
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            var content = await response.Content.ReadAsStringAsync();
+                            throw new Exception($"Upload failed for {meta.ImageLocation}, aborting...");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message + ex.StackTrace);
+                    }
+                }
             }
-
-
-
+            return true;
         }
 
         public MetadataPlaceholderModel CreateMetadataPlaceholder(string key, string value)

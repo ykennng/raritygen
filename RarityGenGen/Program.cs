@@ -46,7 +46,7 @@ namespace RarityGenGen
             int imagePosition = 1;
             foreach (var spriteType in Enum.GetValues(typeof(SpriteTypeEnum)))
             {
-                var resultSet = combiGen.GenerateCombinations((SpriteTypeEnum)spriteType);
+                var resultSet = combiGen.GenerateCombinations((SpriteTypeEnum)spriteType, size);
                 combiGen.FillInItemSets(resultSet, imagePosition, size, $"{spriteType.ToString()}\\", ".png");
                 imagePosition++;
             }
